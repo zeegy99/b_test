@@ -3,10 +3,12 @@ import psycopg2
 import sys, os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from app import app  
+
 
 os.environ["DATABASE_URL"] = "postgresql://postgres:test@localhost:5432/biblios_database_dev"
 os.environ["SECRET_KEY"] = "test-secret-key-doesnt-matter-for-this-test"
+
+from app import app  
 
 @pytest.fixture
 def client():
@@ -44,7 +46,7 @@ class Test_register:
         response = client.post("/api/register", json={
             "email": "test@gmail.com", "username": "test_username", "password": "test_password"
         })
-
+        print(response.get_json())
         assert response.status_code == 200
 
     def test_register_duplicate_email(self, client, existing_user):
@@ -52,7 +54,7 @@ class Test_register:
         response = client.post("/api/register", json={
             "email": "test1@gmail.com", "username": "test_username", "password": "test1_password"
         })
-    
+
         assert response.status_code == 400
         assert response.get_json()['error'] == "Email or username already in use"
 

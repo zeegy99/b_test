@@ -23,7 +23,7 @@ const ForgotPassword = () => {
     }
    
     console.log("This is email", e)
-    const res = await fetch("https://biblios-backend.onrender.com/api/check_email", {
+    const res = await fetch("/api/check_email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: e })
@@ -35,7 +35,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (!isGuest && savedName) {
-      fetch("https://biblios-backend.onrender.com/api/get_elo", {
+      fetch("/api/get_elo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: savedName.trim() })

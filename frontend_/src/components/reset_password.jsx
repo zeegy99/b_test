@@ -24,7 +24,7 @@ const ResetPassword = () => {
     if (changedPassword === confirmchangedPassword) {
       console.log("done")
       //send something to api pisser 
-      const res = await fetch ("https://biblios-backend.onrender.com/api/change_password", {
+      const res = await fetch ("/api/change_password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password: changedPassword, code: code })
@@ -47,7 +47,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (!isGuest && savedName) {
-      fetch("https://biblios-backend.onrender.com/api/get_elo", {
+      fetch("/api/get_elo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: savedName.trim() })
