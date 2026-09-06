@@ -53,7 +53,7 @@ useEffect (() => {
     console.log("inside inside inside")
     const fetchUsername = async () => {
       try {
-        const response = await fetch ("https://biblios-backend.onrender.com/api/current-user", {
+        const response = await fetch ("/api/current-user", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: 'include'
@@ -97,7 +97,7 @@ useEffect(() => {
   
   const fetchUsername = async () => {
     try {
-      const response = await fetch ("https://biblios-backend.onrender.com/api/current-user", {
+      const response = await fetch ("/api/current-user", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: 'include'
@@ -113,7 +113,7 @@ useEffect(() => {
 
         if (username) {
           const cleanUsername = username.trim();
-          fetch("https://biblios-backend.onrender.com/api/get_elo", {
+          fetch("/api/get_elo", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: cleanUsername })

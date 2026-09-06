@@ -45,7 +45,7 @@ const Settings = () => {
 
   useEffect(() => {
     if (!isGuest && savedName) {
-      fetch("https://biblios-backend.onrender.com/api/get_elo", {
+      fetch("/api/get_elo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: savedName.trim() })
@@ -57,7 +57,7 @@ const Settings = () => {
   }, [isGuest, savedName]);
 
   const sendKeybinds = () => {
-    fetch("https://biblios-backend.onrender.com/api/send_keybinds", {
+    fetch("/api/send_keybinds", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: login_info, settings: updatedSettings})

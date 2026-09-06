@@ -21,7 +21,7 @@ function App() {
   
   useEffect(() => {
     console.log("8. Hey I'm in the useeffect and I'm running ")
-    fetch('https://biblios-backend.onrender.com/api/current-user', {
+    fetch('/api/current-user', {
       credentials: 'include'
     })
     .then(response => {
