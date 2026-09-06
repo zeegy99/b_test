@@ -20,6 +20,8 @@ jobs:
             git checkout main
             git pull origin main
             cd frontend_
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             npm install
             npm run build
             cd ..
