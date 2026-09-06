@@ -52,7 +52,7 @@ jobs:
                 DATABASE_URL: postgresql://postgres:test@localhost:5432/biblios_database_dev
                 SECRET_KEY: test-secret-key-doesnt-matter-for-this-test
               run: 
-                pytest tests/ -v
+                pytest tests_python/ -v
 
 
             

@@ -13,7 +13,7 @@ const ScoringPhase = ({ players, dice, setFinalResults, goToResults, isHost }) =
     console.log("inside inside inside")
     const fetchUsername = async () => {
       try {
-        const response = await fetch ("https://biblios-backend.onrender.com/api/current-user", {
+        const response = await fetch ("/api/current-user", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
         credentials: 'include'
@@ -166,7 +166,7 @@ const ScoringPhase = ({ players, dice, setFinalResults, goToResults, isHost }) =
       }
 
       if (player.name === username) {
-        fetch("https://biblios-backend.onrender.com/api/update_elo", {
+        fetch("/api/update_elo", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ username: login_info, eloChange: player.elo })

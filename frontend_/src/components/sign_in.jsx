@@ -17,7 +17,7 @@ const SigninPage = ({setPlayerName, setIsAuthenticated}) => {
     e.preventDefault();
     console.log("1 starting login process")
     try {
-      const res = await fetch("https://biblios-backend.onrender.com/api/signin", {
+      const res = await fetch("/api/signin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -33,7 +33,7 @@ const SigninPage = ({setPlayerName, setIsAuthenticated}) => {
       if (res.ok) {
         console.log("4. Res is ok")
         // I am going to rehaul this so that we don't need signin_usrename in localstorage. 
-        const userResponse = await fetch('https://biblios-backend.onrender.com/api/current-user', {
+        const userResponse = await fetch('/api/current-user', {
           method: "GET",
           credentials: 'include',
           headers: {

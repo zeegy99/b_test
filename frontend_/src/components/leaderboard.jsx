@@ -15,7 +15,7 @@ const LeaderBoard = () => {
 
   useEffect(() => {
     if (!isGuest && savedName) {
-      fetch("https://biblios-backend.onrender.com/api/get_elo", {
+      fetch("/api/get_elo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: savedName.trim() })
@@ -27,7 +27,7 @@ const LeaderBoard = () => {
   }, [isGuest, savedName]);
 
   useEffect(() => {
-    fetch("https://biblios-backend.onrender.com/api/get_leaderboard")
+    fetch("/api/get_leaderboard")
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
